@@ -23,7 +23,9 @@ export const testapi = () => {
   const options = {
     method: "GET",
     headers: {
-      "Content-Type": "application/json", // 요청 헤더 (JSON 형식으로 요청)
+      "Content-Type": "application/json;charset-utf-8",
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Credentials": "true",
     },
   };
 
