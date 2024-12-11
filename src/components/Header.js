@@ -12,7 +12,7 @@ const HeaderContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   background-color: #ffcc93;
-  padding: 45px ${mainStyle.Padding_main};
+  padding: 40px ${mainStyle.Padding_main};
 `;
 const BackButton = styled.div`
   color: #333;

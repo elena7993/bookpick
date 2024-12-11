@@ -1,56 +1,45 @@
-const API_KEY = "ttbjzgucome2011001";
-// const BASE_URL = "http://www.aladin.co.kr/ttb/api";
-const BASE_URL = "/ttb/api";
+// export const testapi = () => {
+//   const testUrl = `http://www.aladin.co.kr/ttb/api/ItemSearch.aspx?ttbkey=ttbjzgucome2011001&Query=aladdin&QueryType=Title&MaxResults=10&start=1&SearchTarget=Book&output=js&Version=20131101`;
+//   return fetch(testUrl).then((res) => res.json());
+// };
 
-// 1. 베스트셀러 도서 데이터 가져오기
-export const fetchBestSellers = async () => {
-  const API_URL = `${BASE_URL}/ItemList.aspx?ttbkey=${API_KEY}&QueryType=Bestseller&MaxResults=10&Start=1&SearchTarget=Book&Output=JS&Version=20131101`;
+// console.log(testapi());
 
-  try {
-    const response = await fetch(API_URL);
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    const data = await response.json();
-    return data.item || []; // 반환된 데이터 중 item 배열만 반환
-  } catch (error) {
-    console.error("Error fetching bestsellers:", error);
-    return [];
-  }
+// ttbjzgucome2011001
+
+// export const testapi = () => {
+//   const testUrl = `http://www.aladin.co.kr/ttb/api/ItemSearch.aspx?ttbkey=ttbjzgucome2011001&Query=aladdin&QueryType=Title&MaxResults=10&start=1&SearchTarget=Book&output=js&Version=20131101`;
+//   return fetch(testUrl).then((res) => res.json());
+// };
+
+// // 호출 후 결과 출력
+// testapi().then((data) => {
+//   console.log("API 호출 결과:", data);
+// });
+
+export const testapi = () => {
+  const testUrl = `http://www.aladin.co.kr/ttb/api/ItemSearch.aspx?ttbkey=ttbjzgucome2011001&Query=aladdin&QueryType=Title&MaxResults=10&start=1&SearchTarget=Book&output=js&Version=20131101`;
+
+  const options = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json", // 요청 헤더 (JSON 형식으로 요청)
+    },
+  };
+
+  return fetch(testUrl, options)
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error(`HTTP Error: ${res.status}`);
+      }
+      return res.json();
+    })
+    .catch((error) => {
+      console.error("Error fetching API:", error);
+    });
 };
 
-// 2. 특정 검색어로 도서 검색
-export const fetchBooks = async (query, searchTarget = "Book") => {
-  const API_URL = `${BASE_URL}/ItemSearch.aspx?ttbkey=${API_KEY}&Query=${encodeURIComponent(
-    query
-  )}&SearchTarget=${searchTarget}&MaxResults=10&Output=JS&Version=20131101`;
-
-  try {
-    const response = await fetch(API_URL);
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    const data = await response.json();
-    return data.item || [];
-  } catch (error) {
-    console.error("Error fetching books:", error);
-    return [];
-  }
-};
-
-// 3. 카테고리 목록 가져오기
-export const fetchCategories = async () => {
-  const API_URL = `${BASE_URL}/ItemList.aspx?ttbkey=${API_KEY}&QueryType=Category&MaxResults=12&Output=JS&Version=20131101`;
-
-  try {
-    const response = await fetch(API_URL);
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    const data = await response.json();
-    return data.item || [];
-  } catch (error) {
-    console.error("Error fetching categories:", error);
-    return [];
-  }
-};
+// 호출 후 결과 출력
+testapi().then((data) => {
+  console.log("API 호출 결과:", data);
+});
