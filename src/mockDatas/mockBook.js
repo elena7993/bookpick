@@ -91,11 +91,11 @@ const mockBooks = [
   },
   {
     id: 6,
-    title: "힝구",
+    title: "우리가 빛의 속도로 갈 수 없다면",
     cover:
-      "https://image.aladin.co.kr/product/29026/66/coversum/k972832939_1.jpg",
+      "https://image.aladin.co.kr/product/19359/16/cover500/s152835852_1.jpg",
     author: "김초엽 (지은이)",
-    pubDate: "2023-09-10",
+    pubDate: "2019-06-24",
     publisher: "현대문학",
     priceSales: 13500,
     priceStandard: 15000,
@@ -108,7 +108,7 @@ const mockBooks = [
     id: 7,
     title: "달러구트 꿈 백화점",
     cover:
-      "https://image.aladin.co.kr/product/24973/74/coversum/k292733211_1.jpg",
+      "https://image.aladin.co.kr/product/24512/70/cover200/k392630952_2.jpg",
     author: "이미예 (지은이)",
     pubDate: "2020-07-08",
     publisher: "팩토리나인",
@@ -123,7 +123,7 @@ const mockBooks = [
     id: 8,
     title: "당신이 옳다",
     cover:
-      "https://image.aladin.co.kr/product/18994/67/coversum/8965746664_1.jpg",
+      "https://image.aladin.co.kr/product/16938/73/cover200/s782534590_2.jpg",
     author: "정혜신 (지은이)",
     pubDate: "2018-10-10",
     publisher: "해냄출판사",
@@ -136,7 +136,8 @@ const mockBooks = [
   {
     id: 9,
     title: "작은 것들의 신",
-    cover: "https://image.aladin.co.kr/product/111/11/coversum/xxxxxxx.jpg",
+    cover:
+      "https://image.aladin.co.kr/product/7586/21/cover200/8954639402_1.jpg",
     author: "아룬다티 로이 (지은이), xxx (옮긴이)",
     pubDate: "2000-05-10",
     publisher: "문학동네",
@@ -150,7 +151,7 @@ const mockBooks = [
     id: 10,
     title: "미라클 모닝",
     cover:
-      "https://image.aladin.co.kr/product/22980/85/coversum/k972730955_1.jpg",
+      "https://image.aladin.co.kr/product/7747/73/cover200/s552532081_1.jpg",
     author: "할 엘로드 (지은이)",
     pubDate: "2016-12-07",
     publisher: "한빛비즈",
@@ -163,7 +164,8 @@ const mockBooks = [
   {
     id: 11,
     title: "해리 포터와 마법사의 돌",
-    cover: "https://image.aladin.co.kr/product/101/01/coversum/xxxx.jpg",
+    cover:
+      "https://image.aladin.co.kr/product/35144/78/cover200/k852934815_1.jpg",
     author: "J.K. 롤링 (지은이), xxx (옮긴이)",
     pubDate: "2014-01-10",
     publisher: "문학수첩",
@@ -176,7 +178,8 @@ const mockBooks = [
   {
     id: 12,
     title: "참을 수 없는 존재의 가벼움",
-    cover: "https://image.aladin.co.kr/product/300/00/coversum/xxxxx.jpg",
+    cover:
+      "https://image.aladin.co.kr/product/34797/80/cover200/8937437562_1.jpg",
     author: "밀란 쿤데라 (지은이), 이재룡 (옮긴이)",
     pubDate: "2002-05-20",
     publisher: "민음사",
