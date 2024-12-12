@@ -2,7 +2,9 @@ import { IoSearch } from "react-icons/io5";
 import Header from "../../components/Header";
 import Wrapper from "../../components/Wrapper";
 import styled from "styled-components";
-import { testapi } from "../../api";
+import { searchBooks } from "../../api";
+import { useEffect } from "react";
+import { useQuery } from "@tanstack/react-query";
 
 const SearchBox = styled.div`
   width: 100%;
@@ -61,13 +63,28 @@ const TapBox = styled.div`
 const BookList = styled.div``;
 
 const Search = () => {
-  testapi();
+  // const [books, setBooks] = useState();
+
+  // useEffect(() => {
+  //   (async () => {
+  //     try {
+  //       const a = await searchBooks();
+  //       console.log(a);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   })();
+  // });
+
+  const a = useQuery({ queryKey: ["_"], queryFn: searchBooks });
+  console.log(a);
+
   return (
     <Wrapper>
       <Header />
       <SearchBox>
         <input type="text" placeholder="도서를 입력하세요." />
-        <IoSearch style={{ fontSize: "18px" }} />
+        {/* <IoSearch style={{ fontSize: "18px" }} /> */}
       </SearchBox>
 
       <TapBox>

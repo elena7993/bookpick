@@ -2,7 +2,7 @@ import { FaArrowLeft } from "react-icons/fa";
 import styled from "styled-components";
 import { mainStyle } from "../GlobalStyled";
 import { FiMenu } from "react-icons/fi";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 
 const HeaderContainer = styled.div`
   width: calc(100% + 36px);

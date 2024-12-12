@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Wrapper from "../../components/Wrapper";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 const InnerWrap = styled.div`
   /* width: 100%; */
