@@ -192,7 +192,8 @@ const mockBooks = [
   {
     id: 13,
     title: "나미야 잡화점의 기적",
-    cover: "https://image.aladin.co.kr/product/19190/26/coversum/xxxxxx.jpg",
+    cover:
+      "https://image.aladin.co.kr/product/30768/99/cover200/k252830652_2.jpg",
     author: "히가시노 게이고 (지은이), 양윤옥 (옮긴이)",
     pubDate: "2012-12-10",
     publisher: "현대문학",
@@ -206,7 +207,7 @@ const mockBooks = [
     id: 14,
     title: "달러구트 꿈 백화점 2",
     cover:
-      "https://image.aladin.co.kr/product/25973/74/coversum/k292733211_2.jpg",
+      "https://image.aladin.co.kr/product/30258/81/cover200/k242839607_1.jpg",
     author: "이미예 (지은이)",
     pubDate: "2021-07-15",
     publisher: "팩토리나인",
@@ -221,7 +222,7 @@ const mockBooks = [
     id: 15,
     title: "역사의 쓸모",
     cover:
-      "https://image.aladin.co.kr/product/21427/89/coversum/k222636986_1.jpg",
+      "https://image.aladin.co.kr/product/19433/93/cover200/k152635416_2.jpg",
     author: "최태성 (지은이)",
     pubDate: "2019-07-15",
     publisher: "다산초당",
@@ -235,7 +236,7 @@ const mockBooks = [
     id: 16,
     title: "페인트",
     cover:
-      "https://image.aladin.co.kr/product/22985/69/coversum/k082735085_1.jpg",
+      "https://image.aladin.co.kr/product/18958/95/cover200/893645689x_1.jpg",
     author: "이희영 (지은이)",
     pubDate: "2020-05-25",
     publisher: "창비",
@@ -249,7 +250,8 @@ const mockBooks = [
   {
     id: 17,
     title: "미드나잇 라이브러리",
-    cover: "https://image.aladin.co.kr/product/26134/21/coversum/xxxxx.jpg",
+    cover:
+      "https://image.aladin.co.kr/product/26987/37/cover200/s622931315_1.jpg",
     author: "매트 헤이그 (지은이), xxx (옮긴이)",
     pubDate: "2021-04-30",
     publisher: "클레이하우스",
@@ -262,14 +264,14 @@ const mockBooks = [
   },
   {
     id: 18,
-    title: "불편한 편의점 특별판",
+    title: "소년이 온다",
     cover:
-      "https://image.aladin.co.kr/product/28843/00/coversum/k162830919_sp.jpg",
-    author: "김호연 (지은이)",
-    pubDate: "2023-08-01",
-    publisher: "나무옆의자",
-    priceSales: 18000,
-    priceStandard: 20000,
+      "https://image.aladin.co.kr/product/4086/97/cover500/8936434128_2.jpg",
+    author: "한강 (지은이)",
+    pubDate: "2014-05-19",
+    publisher: "창비",
+    priceSales: 13500,
+    priceStandard: 15000,
     description:
       "인기 소설 '불편한 편의점'의 특별판으로 추가 에피소드 및 일러스트 수록.",
     categoryId: 509,
@@ -279,7 +281,7 @@ const mockBooks = [
     id: 19,
     title: "우리가 빛의 속도로 갈 수 없다면",
     cover:
-      "https://image.aladin.co.kr/product/24583/61/coversum/k192730923_1.jpg",
+      "https://image.aladin.co.kr/product/19359/16/cover200/s152835852_1.jpg",
     author: "김초엽 (지은이)",
     pubDate: "2019-06-24",
     publisher: "허블",

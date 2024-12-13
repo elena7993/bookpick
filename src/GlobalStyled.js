@@ -14,10 +14,11 @@ ${reset}
 body{
   color: #000;
   background-color: #fff;
-  /* letter-spacing: 0.1px; */
-  /* font-family: 'Barlow Condensed', sans-serif;
+  /* letter-spacing: 0.1px;  */
+  font-family: "Noto Sans KR", serif;
+  font-optical-sizing: auto;
   font-weight: 300;
-  font-style: normal; */
+  font-style: normal;
 }
 
 img{

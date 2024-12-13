@@ -3,6 +3,9 @@ import Header from "../../components/Header";
 import Wrapper from "../../components/Wrapper";
 import styled from "styled-components";
 import mockBooks from "../../mockDatas/mockBook";
+import categories from "../../mockDatas/categories";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SearchBox = styled.div`
   width: 100%;
@@ -22,7 +25,7 @@ const SearchBox = styled.div`
     }
   }
 `;
-const TapBox = styled.div`
+const TabBox = styled.div`
   display: flex;
   margin-top: 20px;
   .bestseller {
@@ -33,12 +36,27 @@ const TapBox = styled.div`
     h3 {
       font-weight: 700;
       padding: 2px;
+      color: #ababab;
+      font-size: 16px;
     }
     .bar {
-      width: 82px;
+      width: 88px;
       height: 3px;
-      background-color: #fed36a;
+      background-color: transparent;
       border-radius: 10px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    &.active {
+      h3 {
+        color: #000;
+        font-size: 18px;
+      }
+
+      .bar {
+        width: 88px;
+        background-color: #fed36a;
+      }
     }
   }
 
@@ -49,12 +67,25 @@ const TapBox = styled.div`
     h3 {
       font-weight: 700;
       padding: 2px;
+      color: #ababab;
     }
     .bar {
       width: 70px;
       height: 3px;
-      background-color: #fed36a;
+      background-color: transparent;
       border-radius: 10px;
+      transition: all 0.3s ease-in-out;
+    }
+    &.active {
+      h3 {
+        color: #000;
+        font-size: 18px;
+      }
+
+      .bar {
+        width: 70px;
+        background-color: #fed36a;
+      }
     }
   }
 `;
@@ -90,7 +121,28 @@ const BookList = styled.div`
   }
 `;
 
+const CategoryList = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 30px;
+  .category-item {
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+    color: #000;
+    cursor: pointer;
+    &:hover {
+      background-color: #fed36a;
+      transition: all 0.2s ease-in-out;
+    }
+  }
+`;
+
 const Search = () => {
+  const [activeTab, setActiveTab] = useState("bestseller");
+  const navigate = useNavigate();
+
   return (
     <Wrapper>
       <Header />
@@ -99,27 +151,49 @@ const Search = () => {
         <IoSearch style={{ fontSize: "18px" }} />
       </SearchBox>
 
-      <TapBox>
-        <div className="bestseller">
+      <TabBox>
+        <div
+          className={`bestseller ${activeTab === "bestseller" ? "active" : ""}`}
+          onClick={() => setActiveTab("bestseller")}
+        >
           <h3>베스트셀러</h3>
           <div className="bar"></div>
         </div>
 
-        <div className="category">
+        <div
+          className={`category ${activeTab === "category" ? "active" : ""}`}
+          onClick={() => setActiveTab("category")}
+        >
           <h3>카테고리</h3>
           <div className="bar"></div>
         </div>
-      </TapBox>
+      </TabBox>
 
-      <BookList>
-        {mockBooks.map((book) => (
-          <div className="book-item" key={book.id}>
-            <img src={book.cover} alt={book.title} />
-            <h4>{book.title}</h4>
-            <p>{book.author}</p>
-          </div>
-        ))}
-      </BookList>
+      {activeTab === "bestseller" && (
+        <BookList>
+          {mockBooks.map((book) => (
+            <div
+              className="book-item"
+              key={book.id}
+              onClick={() => navigate(`detail/${book.id}`)}
+            >
+              <img src={book.cover} alt={book.title} />
+              <h4>{book.title}</h4>
+              <p>{book.author}</p>
+            </div>
+          ))}
+        </BookList>
+      )}
+
+      {activeTab === "category" && (
+        <CategoryList>
+          {categories.map((category, index) => (
+            <div className="category-item" key={index}>
+              <h4>{category}</h4>
+            </div>
+          ))}
+        </CategoryList>
+      )}
     </Wrapper>
   );
 };
