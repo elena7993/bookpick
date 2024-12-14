@@ -130,10 +130,19 @@ const Search = () => {
     navigate(`/search/categories/${categoryName}`);
   };
 
+  const [searchTerm, setSearchTerm] = useState("");
+  const handleSearch = (term) => {
+    navigate("/results", { state: { searchTerm: term } });
+  };
+
   return (
     <Wrapper>
       <Header />
-      <InputSearch />
+      <InputSearch
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+        onSearch={handleSearch}
+      />
 
       <TabBox>
         <div

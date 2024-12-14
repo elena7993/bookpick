@@ -4,6 +4,7 @@ import { HashRouter, Route, Routes } from "react-router-dom";
 import BookShelf from "./pages/bookShelf/BookShelf";
 import BookDetail from "./pages/bookSearch/BookDetail";
 import Category from "./pages/categories/Category";
+import Results from "./pages/bookSearch/Results";
 
 const Router = () => {
   return (
@@ -11,9 +12,10 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/search" element={<Search />} />
-        <Route path="/shelf" element={<BookShelf />} />
+        <Route path="/results" element={<Results />} />
         <Route path="/search/detail/:id" element={<BookDetail />} />
         <Route path="/search/categories/:categoryName" element={<Category />} />
+        <Route path="/shelf" element={<BookShelf />} />
       </Routes>
     </HashRouter>
   );
