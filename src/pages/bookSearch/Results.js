@@ -4,7 +4,7 @@ import InputSearch from "../../components/InputSearch";
 import Wrapper from "../../components/Wrapper";
 import { useEffect, useState } from "react";
 import mockBooks from "../../mockDatas/mockBook";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const SearchedResults = styled.div`
   display: flex;
@@ -18,6 +18,7 @@ const BookList = styled.div`
   gap: 8px;
   margin-top: 20px;
   .book-item {
+    cursor: pointer;
     img {
       width: 140px;
       height: 175px;
@@ -42,6 +43,7 @@ const BookList = styled.div`
 
 const Results = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const { searchTerm } = location.state || "";
   const [filteredBooks, setFilteredBooks] = useState([]);
 
@@ -58,6 +60,9 @@ const Results = () => {
     setFilteredBooks(results);
   };
 
+  // const handleBookClick = (bookId) => {
+  //   navigate(`/search/detail${bookId}`);
+  // };
   return (
     <Wrapper>
       <Header />
@@ -72,7 +77,11 @@ const Results = () => {
       <BookList>
         {filteredBooks.length > 0 ? (
           filteredBooks.map((book) => (
-            <div className="book-item" key={book.id}>
+            <div
+              className="book-item"
+              key={book.id}
+              onClick={() => navigate(`/search/detail/${book.id}`)}
+            >
               <img src={book.cover} alt={book.title} />
               <h3>{book.title}</h3>
               <h4>{book.author}</h4>
