@@ -1,4 +1,3 @@
-import { IoSearch } from "react-icons/io5";
 import Header from "../../components/Header";
 import Wrapper from "../../components/Wrapper";
 import styled from "styled-components";
@@ -6,25 +5,8 @@ import mockBooks from "../../mockDatas/mockBook";
 import categories from "../../mockDatas/categories";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import InputSearch from "../../components/InputSearch";
 
-const SearchBox = styled.div`
-  width: 100%;
-  height: 44px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border: 1px solid #000;
-  border-radius: 15px;
-  padding: 0 8px;
-  margin-top: 15px;
-
-  input {
-    all: unset;
-    &::placeholder {
-      font-size: 14px;
-    }
-  }
-`;
 const TabBox = styled.div`
   display: flex;
   margin-top: 20px;
@@ -100,6 +82,7 @@ const BookList = styled.div`
     flex-direction: column;
     align-items: center;
     text-align: center;
+    cursor: pointer;
 
     img {
       width: 100px;
@@ -143,13 +126,14 @@ const Search = () => {
   const [activeTab, setActiveTab] = useState("bestseller");
   const navigate = useNavigate();
 
+  const onCategoryClick = (categoryName) => {
+    navigate(`/search/categories/${categoryName}`);
+  };
+
   return (
     <Wrapper>
       <Header />
-      <SearchBox>
-        <input type="text" placeholder="도서를 입력하세요." />
-        <IoSearch style={{ fontSize: "18px" }} />
-      </SearchBox>
+      <InputSearch />
 
       <TabBox>
         <div
@@ -188,7 +172,11 @@ const Search = () => {
       {activeTab === "category" && (
         <CategoryList>
           {categories.map((category, index) => (
-            <div className="category-item" key={index}>
+            <div
+              className="category-item"
+              key={index}
+              onClick={() => onCategoryClick(category)}
+            >
               <h4>{category}</h4>
             </div>
           ))}

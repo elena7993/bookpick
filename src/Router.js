@@ -3,6 +3,7 @@ import Search from "./pages/bookSearch/Search";
 import { HashRouter, Route, Routes } from "react-router-dom";
 import BookShelf from "./pages/bookShelf/BookShelf";
 import BookDetail from "./pages/bookSearch/BookDetail";
+import Category from "./pages/categories/Category";
 
 const Router = () => {
   return (
@@ -12,6 +13,7 @@ const Router = () => {
         <Route path="/search" element={<Search />} />
         <Route path="/shelf" element={<BookShelf />} />
         <Route path="/search/detail/:id" element={<BookDetail />} />
+        <Route path="/search/categories/:categoryName" element={<Category />} />
       </Routes>
     </HashRouter>
   );
