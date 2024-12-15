@@ -3,6 +3,8 @@ import Header from "../../components/Header";
 import Wrapper from "../../components/Wrapper";
 import { useParams } from "react-router-dom";
 import mockBooks from "../../mockDatas/mockBook";
+import { useState } from "react";
+import Modal from "../../components/Modal";
 
 const BookCover = styled.div`
   display: flex;
@@ -44,8 +46,8 @@ const DescBox = styled.div`
 `;
 const Button = styled.button`
   all: unset;
-  width: 321px;
-  height: 42px;
+  width: 320px;
+  height: 40px;
   background-color: #f6bf00;
   color: #fff;
   font-weight: 700;
@@ -58,6 +60,25 @@ const Button = styled.button`
 const BookDetail = () => {
   const { id } = useParams();
   const book = mockBooks.find((item) => item.id === parseInt(id));
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleAddToWishlist = () => {
+    const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+    if (!wishlist.some((item) => item.id === book.id)) {
+      wishlist.push(book);
+      localStorage.setItem("wishlist", JSON.stringify(wishlist));
+    }
+    setIsModalOpen(false);
+  };
+
+  const handleAddToReadlist = () => {
+    const readlist = JSON.parse(localStorage.getItem("readlist")) || [];
+    if (!readlist.some((item) => item.id === book.id)) {
+      readlist.push(book);
+      localStorage.setItem("readlist", JSON.stringify(readlist));
+    }
+    setIsModalOpen(false);
+  };
 
   if (!book) {
     return <h2>책 정보를 찾을 수 없습니다.</h2>;
@@ -76,19 +97,19 @@ const BookDetail = () => {
           <h4>저자</h4>
           <p>{book.author}</p>
         </div>
-        <div className="info .pubDate">
+        <div className="info pubDate">
           <h4>발행</h4>
           <p>{book.pubDate}</p>
         </div>
-        <div className="info .publisher">
+        <div className="info publisher">
           <h4>출판</h4>
           <p>{book.publisher}</p>
         </div>
-        <div className="info .categoryName">
+        <div className="info categoryName">
           <h4>분류</h4>
           <p>{book.categoryName}</p>
         </div>
-        <div className="info .priceStandard">
+        <div className="info priceStandard">
           <h4>정가</h4>
           <p>{book.priceStandard.toLocaleString()}원</p>
         </div>
@@ -98,7 +119,14 @@ const BookDetail = () => {
         </div>
       </BookInfo>
       <DescBox>"{book.description}"</DescBox>
-      <Button>Add</Button>
+      <Button onClick={() => setIsModalOpen(true)}>Add</Button>
+      {isModalOpen && (
+        <Modal
+          onClose={() => setIsModalOpen(false)}
+          onAddToWishlist={handleAddToWishlist}
+          onAddToReadlist={handleAddToReadlist}
+        />
+      )}
     </Wrapper>
   );
 };
