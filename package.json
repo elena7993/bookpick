@@ -31,11 +31,14 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "prodeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "homepage": "https://elena7993.github.io/bookpick/#/",
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -53,5 +56,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^6.2.0"
   }
 }
