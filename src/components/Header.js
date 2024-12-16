@@ -50,7 +50,7 @@ const Header = () => {
         </BackButton>
 
         <Logo
-          src="/imgs/book_5606116.png"
+          src={`${process.env.PUBLIC_URL}/imgs/book_5606116.png`}
           alt="logo"
           onClick={() => navigate("/")}
         />

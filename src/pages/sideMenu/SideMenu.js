@@ -67,7 +67,10 @@ const SideMenu = ({ isOpen, onClose }) => {
         </a>
       </MenuBox>
       <LogoBg>
-        <img src="/imgs/book_5606116.png" alt="logo" />
+        <img
+          src={`${process.env.PUBLIC_URL}/imgs/book_5606116.png`}
+          alt="logo"
+        />
       </LogoBg>
     </Wrap>
   );

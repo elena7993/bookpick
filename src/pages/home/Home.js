@@ -8,7 +8,8 @@ const InnerWrap = styled.div`
   width: calc(100% + 36px);
   height: 100%;
   margin: 0 -18px;
-  background: url("/imgs/vintage_book_strore.webp") no-repeat center / cover;
+  background: url(${`${process.env.PUBLIC_URL}/imgs/vintage_book_strore.webp`})
+    no-repeat center / cover;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
