@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/bookpick/static/js/main.51fbaf06.js",
+    "main.js": "/bookpick/static/js/main.e6911b08.js",
     "index.html": "/bookpick/index.html",
-    "main.51fbaf06.js.map": "/bookpick/static/js/main.51fbaf06.js.map"
+    "main.e6911b08.js.map": "/bookpick/static/js/main.e6911b08.js.map"
   },
   "entrypoints": [
-    "static/js/main.51fbaf06.js"
+    "static/js/main.e6911b08.js"
   ]
 }
