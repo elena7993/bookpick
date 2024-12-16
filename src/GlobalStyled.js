@@ -19,6 +19,20 @@ body{
   font-optical-sizing: auto;
   font-weight: 300;
   font-style: normal;
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #fed36a;
+    border-radius: 10px;
+    border: 2px solid #f1f1f1;
+  }
 }
 
 img{

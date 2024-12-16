@@ -5,6 +5,8 @@ import Wrapper from "../../components/Wrapper";
 import { useEffect, useState } from "react";
 import mockBooks from "../../mockDatas/mockBook";
 import { useLocation, useNavigate } from "react-router-dom";
+import { Combobox } from "evergreen-ui";
+import PageTitle from "../../components/PageTitle";
 
 const SearchedResults = styled.div`
   display: flex;
@@ -14,6 +16,9 @@ const SearchedResults = styled.div`
   h3 {
     font-size: 16px;
     font-weight: 600;
+  }
+  .combobox {
+    width: 100px;
   }
 `;
 const BookList = styled.div`
@@ -51,6 +56,7 @@ const Results = () => {
   const navigate = useNavigate();
   const { searchTerm } = location.state || "";
   const [filteredBooks, setFilteredBooks] = useState([]);
+  const [sortOrder, setSortOrder] = useState("");
 
   useEffect(() => {
     if (searchTerm) {
@@ -65,46 +71,64 @@ const Results = () => {
     setFilteredBooks(results);
   };
 
-  // const handleBookClick = (bookId) => {
-  //   navigate(`/search/detail${bookId}`);
-  // };
-  return (
-    <Wrapper>
-      <Header />
-      <InputSearch searchTerm={searchTerm} onSearch={handleSearch} />
-      <SearchedResults>
-        <h3>
-          검색결과<span>({filteredBooks.length})</span>
-        </h3>
-        <span>이름순</span>
-      </SearchedResults>
+  const sortedBooks = [...filteredBooks].sort((a, b) => {
+    if (sortOrder === "이름순") {
+      return a.title.localeCompare(b.title);
+    }
+    if (sortOrder === "최신등록순") {
+      return new Date(b.pubDate) - new Date(a.pubDate);
+    }
+    return 0;
+  });
 
-      <BookList>
-        {filteredBooks.length > 0 ? (
-          filteredBooks.map((book) => (
-            <div
-              className="book-item"
-              key={book.id}
-              onClick={() => navigate(`/search/detail/${book.id}`)}
-            >
-              <img src={book.cover} alt={book.title} />
-              <h3>{book.title}</h3>
-              <h4>{book.author}</h4>
-              <p className="pub">
-                <span>{book.publisher}</span>
-                <span>{book.pubDate}</span>
-              </p>
-            </div>
-          ))
-        ) : (
-          <p>
-            이런,
-            <br />
-            검색 결과가 없습니다.
-          </p>
-        )}
-      </BookList>
-    </Wrapper>
+  return (
+    <>
+      <PageTitle title={"Search Results"} />
+      <Wrapper>
+        <Header />
+        <InputSearch searchTerm={searchTerm} onSearch={handleSearch} />
+        <SearchedResults>
+          <h3>
+            검색결과<span>({filteredBooks.length})</span>
+          </h3>
+          <div className="combobox" style={{ width: "100px" }}>
+            <Combobox
+              className="combobox"
+              openOnFocus
+              items={["이름순", "최신등록순"]}
+              onChange={(selected) => setSortOrder(selected)}
+              placeholder="정렬"
+            />
+          </div>
+        </SearchedResults>
+
+        <BookList>
+          {sortedBooks.length > 0 ? (
+            sortedBooks.map((book) => (
+              <div
+                className="book-item"
+                key={book.id}
+                onClick={() => navigate(`/search/detail/${book.id}`)}
+              >
+                <img src={book.cover} alt={book.title} />
+                <h3>{book.title}</h3>
+                <h4>{book.author}</h4>
+                <p className="pub">
+                  <span>{book.publisher}</span>
+                  <span>{book.pubDate}</span>
+                </p>
+              </div>
+            ))
+          ) : (
+            <p>
+              이런,
+              <br />
+              검색 결과가 없습니다.
+            </p>
+          )}
+        </BookList>
+      </Wrapper>
+    </>
   );
 };
 

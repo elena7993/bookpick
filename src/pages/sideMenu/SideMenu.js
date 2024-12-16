@@ -7,9 +7,15 @@ const Wrap = styled.div`
   max-width: 375px;
   height: 100vh;
   background-color: #fff;
-  border: 1px solid #ababab;
+  /* border: 1px solid #ababab; */
   overflow: hidden;
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: calc(50% - 187.5px);
+  transform: ${({ isOpen }) =>
+    isOpen ? "translateX(0)" : "translateX(-250%)"};
+  transition: all 0.5s ease-in-out;
+  z-index: 999;
 `;
 const Title = styled.div`
   font-size: 40px;
@@ -27,6 +33,8 @@ const MenuBox = styled.div`
   cursor: pointer;
   p {
     margin-bottom: 60px;
+    color: #000;
+    text-decoration: none;
   }
 `;
 const LogoBg = styled.div`
@@ -36,11 +44,11 @@ const LogoBg = styled.div`
   }
 `;
 
-const SideMenu = () => {
+const SideMenu = ({ isOpen, onClose }) => {
   const navigate = useNavigate();
 
   return (
-    <Wrap>
+    <Wrap isOpen={isOpen}>
       <IoCloseSharp
         style={{
           position: "absolute",
@@ -48,6 +56,7 @@ const SideMenu = () => {
           top: "2%",
           fontSize: "25px",
         }}
+        onClick={onClose}
       />
       <Title>BOOK PICK</Title>
       <MenuBox>

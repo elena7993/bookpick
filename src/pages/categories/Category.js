@@ -4,6 +4,8 @@ import Wrapper from "../../components/Wrapper";
 import { Combobox } from "evergreen-ui";
 import { useParams, useNavigate } from "react-router-dom";
 import mockBooks from "../../mockDatas/mockBook";
+import { useState } from "react";
+import PageTitle from "../../components/PageTitle";
 
 const SelectedCategory = styled.div`
   width: 100%;
@@ -14,12 +16,12 @@ const SelectedCategory = styled.div`
   .c-name {
     font-size: 18px;
     font-weight: 700;
+    div.combobox {
+      width: 100px;
+    }
   }
   .combobox {
     width: 100px;
-    div[role="combobox"] {
-      width: 100px !important;
-    }
   }
 `;
 const BookList = styled.div`
@@ -27,6 +29,7 @@ const BookList = styled.div`
   grid-template-columns: repeat(3, 1fr);
   gap: 8px;
   margin-top: 20px;
+  position: relative;
 
   .book-item {
     display: flex;
@@ -58,45 +61,61 @@ const BookList = styled.div`
 const Category = () => {
   const { categoryName } = useParams();
 
-  const filterBooks = mockBooks.filter((book) =>
-    book.categoryName.includes(categoryName)
-  );
+  const [sortOrder, setSortOrder] = useState("");
+
+  const sortedBooks = [...mockBooks]
+    .filter((book) => book.categoryName.includes(categoryName))
+    .sort((a, b) => {
+      if (sortOrder === "이름순") {
+        return a.title.localeCompare(b.title);
+      }
+      if (sortOrder === "최신등록순") {
+        return new Date(b.pubDate) - new Date(a.pubDate);
+      }
+      return 0;
+    });
 
   const navigate = useNavigate();
 
   return (
-    <Wrapper>
-      <Header />
+    <>
+      <PageTitle title={"Category"} />
+      <Wrapper>
+        <Header />
+        <SelectedCategory>
+          <div className="c-name">{categoryName}</div>
+          <div className="combobox" style={{ width: "100px" }}>
+            <Combobox
+              className="combobox"
+              openOnFocus
+              items={["이름순", "최신등록순"]}
+              onChange={(selected) => setSortOrder(selected)}
+              placeholder="정렬"
+            />
+          </div>
+        </SelectedCategory>
 
-      <SelectedCategory>
-        <div className="c-name">{categoryName}</div>
-        <Combobox
-          className="combobox"
-          openOnFocus
-          items={["이름순", "최신등록순"]}
-          onChange={(selected) => console.log(selected)}
-          placeholder="정렬"
-        />
-      </SelectedCategory>
-
-      <BookList>
-        {filterBooks.length > 0 ? (
-          filterBooks.map((book) => (
-            <div
-              className="book-item"
-              key={book.id}
-              onClick={() => navigate(`/search/detail/${book.id}`)}
-            >
-              <img src={book.cover} alt={book.title} />
-              <h4>{book.title}</h4>
-              <p>{book.author}</p>
-            </div>
-          ))
-        ) : (
-          <p>해당 카테고리에 책이 없습니다.</p>
-        )}
-      </BookList>
-    </Wrapper>
+        <BookList>
+          {sortedBooks.length > 0 ? (
+            sortedBooks.map((book) => (
+              <div
+                className="book-item"
+                key={book.id}
+                onClick={() => navigate(`/search/detail/${book.id}`)}
+              >
+                <img src={book.cover} alt={book.title} />
+                <h4>{book.title}</h4>
+                <p>{book.author}</p>
+              </div>
+            ))
+          ) : (
+            <p style={{ position: "absolute", left: "0%", color: "#ababab" }}>
+              해당 카테고리에 책이 없습니다.
+            </p>
+          )}
+        </BookList>
+      </Wrapper>
+    </>
   );
 };
 

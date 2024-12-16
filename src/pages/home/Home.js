@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Wrapper from "../../components/Wrapper";
 import { Link } from "react-router-dom";
+import PageTitle from "../../components/PageTitle";
 
 const InnerWrap = styled.div`
   /* width: 100%; */
@@ -40,15 +41,18 @@ const Button = styled.button`
 
 const Home = () => {
   return (
-    <Wrapper>
-      <InnerWrap>
-        <Title>BOOK PICK</Title>
+    <>
+      <PageTitle title={"HOME"} />
+      <Wrapper>
+        <InnerWrap>
+          <Title>BOOK PICK</Title>
 
-        <Link to="/search">
-          <Button>Entering...</Button>
-        </Link>
-      </InnerWrap>
-    </Wrapper>
+          <Link to="/search">
+            <Button>Entering...</Button>
+          </Link>
+        </InnerWrap>
+      </Wrapper>
+    </>
   );
 };
 

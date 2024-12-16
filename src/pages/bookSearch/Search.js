@@ -6,6 +6,7 @@ import categories from "../../mockDatas/categories";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import InputSearch from "../../components/InputSearch";
+import PageTitle from "../../components/PageTitle";
 
 const TabBox = styled.div`
   display: flex;
@@ -136,62 +137,67 @@ const Search = () => {
   };
 
   return (
-    <Wrapper>
-      <Header />
-      <InputSearch
-        searchTerm={searchTerm}
-        setSearchTerm={setSearchTerm}
-        onSearch={handleSearch}
-      />
+    <>
+      <PageTitle title={"Search"} />
+      <Wrapper>
+        <Header />
+        <InputSearch
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+          onSearch={handleSearch}
+        />
 
-      <TabBox>
-        <div
-          className={`bestseller ${activeTab === "bestseller" ? "active" : ""}`}
-          onClick={() => setActiveTab("bestseller")}
-        >
-          <h3>베스트셀러</h3>
-          <div className="bar"></div>
-        </div>
+        <TabBox>
+          <div
+            className={`bestseller ${
+              activeTab === "bestseller" ? "active" : ""
+            }`}
+            onClick={() => setActiveTab("bestseller")}
+          >
+            <h3>베스트셀러</h3>
+            <div className="bar"></div>
+          </div>
 
-        <div
-          className={`category ${activeTab === "category" ? "active" : ""}`}
-          onClick={() => setActiveTab("category")}
-        >
-          <h3>카테고리</h3>
-          <div className="bar"></div>
-        </div>
-      </TabBox>
+          <div
+            className={`category ${activeTab === "category" ? "active" : ""}`}
+            onClick={() => setActiveTab("category")}
+          >
+            <h3>카테고리</h3>
+            <div className="bar"></div>
+          </div>
+        </TabBox>
 
-      {activeTab === "bestseller" && (
-        <BookList>
-          {mockBooks.map((book) => (
-            <div
-              className="book-item"
-              key={book.id}
-              onClick={() => navigate(`detail/${book.id}`)}
-            >
-              <img src={book.cover} alt={book.title} />
-              <h4>{book.title}</h4>
-              <p>{book.author}</p>
-            </div>
-          ))}
-        </BookList>
-      )}
+        {activeTab === "bestseller" && (
+          <BookList>
+            {mockBooks.map((book) => (
+              <div
+                className="book-item"
+                key={book.id}
+                onClick={() => navigate(`detail/${book.id}`)}
+              >
+                <img src={book.cover} alt={book.title} />
+                <h4>{book.title}</h4>
+                <p>{book.author}</p>
+              </div>
+            ))}
+          </BookList>
+        )}
 
-      {activeTab === "category" && (
-        <CategoryList>
-          {categories.map((category, index) => (
-            <div
-              className="category-item"
-              key={index}
-              onClick={() => onCategoryClick(category)}
-            >
-              <h4>{category}</h4>
-            </div>
-          ))}
-        </CategoryList>
-      )}
-    </Wrapper>
+        {activeTab === "category" && (
+          <CategoryList>
+            {categories.map((category, index) => (
+              <div
+                className="category-item"
+                key={index}
+                onClick={() => onCategoryClick(category)}
+              >
+                <h4>{category}</h4>
+              </div>
+            ))}
+          </CategoryList>
+        )}
+      </Wrapper>
+    </>
   );
 };
 

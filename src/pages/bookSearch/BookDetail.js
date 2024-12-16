@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import mockBooks from "../../mockDatas/mockBook";
 import { useState } from "react";
 import Modal from "../../components/Modal";
+import PageTitle from "../../components/PageTitle";
 
 const BookCover = styled.div`
   display: flex;
@@ -85,49 +86,52 @@ const BookDetail = () => {
   }
 
   return (
-    <Wrapper>
-      <Header />
-      <BookCover>
-        <img src={book.cover} alt={book.title} />
-      </BookCover>
-      <Title>{book.title}</Title>
+    <>
+      <PageTitle title={"Book Detail"} />
+      <Wrapper>
+        <Header />
+        <BookCover>
+          <img src={book.cover} alt={book.title} />
+        </BookCover>
+        <Title>{book.title}</Title>
 
-      <BookInfo>
-        <div className="info .author">
-          <h4>저자</h4>
-          <p>{book.author}</p>
-        </div>
-        <div className="info pubDate">
-          <h4>발행</h4>
-          <p>{book.pubDate}</p>
-        </div>
-        <div className="info publisher">
-          <h4>출판</h4>
-          <p>{book.publisher}</p>
-        </div>
-        <div className="info categoryName">
-          <h4>분류</h4>
-          <p>{book.categoryName}</p>
-        </div>
-        <div className="info priceStandard">
-          <h4>정가</h4>
-          <p>{book.priceStandard.toLocaleString()}원</p>
-        </div>
-        <div className="info priceSales">
-          <h4>판매가</h4>
-          <p>{book.priceSales.toLocaleString()}원</p>
-        </div>
-      </BookInfo>
-      <DescBox>"{book.description}"</DescBox>
-      <Button onClick={() => setIsModalOpen(true)}>Add</Button>
-      {isModalOpen && (
-        <Modal
-          onClose={() => setIsModalOpen(false)}
-          onAddToWishlist={handleAddToWishlist}
-          onAddToReadlist={handleAddToReadlist}
-        />
-      )}
-    </Wrapper>
+        <BookInfo>
+          <div className="info .author">
+            <h4>저자</h4>
+            <p>{book.author}</p>
+          </div>
+          <div className="info pubDate">
+            <h4>발행</h4>
+            <p>{book.pubDate}</p>
+          </div>
+          <div className="info publisher">
+            <h4>출판</h4>
+            <p>{book.publisher}</p>
+          </div>
+          <div className="info categoryName">
+            <h4>분류</h4>
+            <p>{book.categoryName}</p>
+          </div>
+          <div className="info priceStandard">
+            <h4>정가</h4>
+            <p>{book.priceStandard.toLocaleString()}원</p>
+          </div>
+          <div className="info priceSales">
+            <h4>판매가</h4>
+            <p>{book.priceSales.toLocaleString()}원</p>
+          </div>
+        </BookInfo>
+        <DescBox>"{book.description}"</DescBox>
+        <Button onClick={() => setIsModalOpen(true)}>Add</Button>
+        {isModalOpen && (
+          <Modal
+            onClose={() => setIsModalOpen(false)}
+            onAddToWishlist={handleAddToWishlist}
+            onAddToReadlist={handleAddToReadlist}
+          />
+        )}
+      </Wrapper>
+    </>
   );
 };
 
