@@ -15,19 +15,23 @@ const InnerWrap = styled.div`
 `;
 
 const Title = styled.div`
-  color: #fff;
   font-size: 40px;
-  font-weight: 800;
+  color: #fff;
+  font-family: "Irish Grover", system-ui;
+  font-weight: 400;
+  font-style: normal;
 `;
 
 const Button = styled.button`
   all: unset;
   width: 240px;
-  height: 66px;
+  height: 50px;
   background-color: #f6bf00;
   color: #fff;
   font-size: 30px;
-  font-weight: 600;
+  font-family: "Irish Grover", system-ui;
+  font-weight: 400;
+  /* font-style: normal; */
   border-radius: 30px;
   text-align: center;
   margin-top: 60px;

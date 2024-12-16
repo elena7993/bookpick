@@ -12,6 +12,7 @@ const TapBox = styled.div`
     flex-direction: column;
     cursor: pointer;
     h3 {
+      font-size: 16px;
       color: #ababab;
       font-weight: 700;
       padding: 2px;
@@ -37,7 +38,7 @@ const TapBox = styled.div`
     }
   }
 
-  .booklist {
+  .readlist {
     display: flex;
     flex-direction: column;
     cursor: pointer;
@@ -60,13 +61,41 @@ const TapBox = styled.div`
       }
 
       .bar {
-        width: 70px;
+        width: 88px;
         background-color: #fed36a;
       }
     }
   }
 `;
-const Books = styled.div``;
+const Books = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  place-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  .book-item {
+    cursor: pointer;
+    img {
+      width: 140px;
+      height: 175px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    h3 {
+      font-size: 14px;
+      font-weight: 700;
+      margin: 8px 0 5px;
+    }
+    h4 {
+      font-size: 12px;
+      margin-bottom: 4px;
+    }
+    .pub {
+      display: flex;
+      font-size: 12px;
+    }
+  }
+`;
 
 const BookShelf = () => {
   const [activeTab, setActiveTab] = useState("wishlist");
@@ -87,7 +116,7 @@ const BookShelf = () => {
       <Header />
       <TapBox>
         <div
-          className={`tab ${activeTab === "wishlist" ? "active" : ""}`}
+          className={`wishlist ${activeTab === "wishlist" ? "active" : ""}`}
           onClick={() => setActiveTab("wishlist")}
         >
           <h3>위시리스트</h3>
@@ -95,7 +124,7 @@ const BookShelf = () => {
         </div>
 
         <div
-          className={`tab ${activeTab === "readlist" ? "active" : ""}`}
+          className={`readlist ${activeTab === "readlist" ? "active" : ""}`}
           onClick={() => setActiveTab("readlist")}
         >
           <h3>완독리스트</h3>
@@ -108,12 +137,18 @@ const BookShelf = () => {
           booksToShow.map((book) => (
             <div className="book-item" key={book.id}>
               <img src={book.cover} alt={book.title} />
-              <h4>{book.title}</h4>
-              <p>{book.author}</p>
+              <h3>{book.title}</h3>
+              <h4>{book.author}</h4>
+              <p className="pub">
+                <span>{book.publisher}</span>
+                <span>{book.pubDate}</span>
+              </p>
             </div>
           ))
         ) : (
-          <p>리스트가 비어있습니다.</p>
+          <p style={{ marginTop: "10px", fontWeight: "300", color: "#ababab" }}>
+            리스트가 비어있습니다.
+          </p>
         )}
       </Books>
     </Wrapper>

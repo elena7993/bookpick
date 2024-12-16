@@ -11,10 +11,15 @@ const SearchedResults = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-top: 20px;
+  h3 {
+    font-size: 16px;
+    font-weight: 600;
+  }
 `;
 const BookList = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  place-items: center;
   gap: 8px;
   margin-top: 20px;
   .book-item {

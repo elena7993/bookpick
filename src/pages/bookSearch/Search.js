@@ -16,10 +16,10 @@ const TabBox = styled.div`
     flex-direction: column;
     cursor: pointer;
     h3 {
+      font-size: 16px;
       font-weight: 700;
       padding: 2px;
       color: #ababab;
-      font-size: 16px;
     }
     .bar {
       width: 88px;

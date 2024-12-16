@@ -43,7 +43,7 @@ const Header = () => {
 
       <Logo src="/imgs/book_5606116.png" alt="logo" />
 
-      <MenuButton>
+      <MenuButton onClick={() => navigate("/sidemenu")}>
         <FiMenu />
       </MenuButton>
     </HeaderContainer>
