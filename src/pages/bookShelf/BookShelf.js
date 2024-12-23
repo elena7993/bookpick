@@ -74,10 +74,14 @@ const Books = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   place-items: center;
-  gap: 8px;
+  row-gap: 20px;
+  column-gap: 4px;
   margin-top: 20px;
   .book-item {
+    /* width: 140px;
+    height: 265px; */
     cursor: pointer;
+    /* overflow: hidden; */
     img {
       width: 140px;
       height: 175px;
@@ -88,6 +92,9 @@ const Books = styled.div`
       font-size: 14px;
       font-weight: 700;
       margin: 8px 0 5px;
+      white-space: nowrap; /* 한 줄로 제한 */
+      overflow: hidden;
+      text-overflow: ellipsis; /* 텍스트 잘림 표시 */
     }
     h4 {
       font-size: 12px;

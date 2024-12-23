@@ -23,7 +23,7 @@ const TabBox = styled.div`
       color: #ababab;
     }
     .bar {
-      width: 88px;
+      width: 84px;
       height: 3px;
       background-color: transparent;
       border-radius: 10px;
@@ -37,7 +37,7 @@ const TabBox = styled.div`
       }
 
       .bar {
-        width: 88px;
+        width: 82px;
         background-color: #fed36a;
       }
     }
@@ -54,7 +54,7 @@ const TabBox = styled.div`
       color: #ababab;
     }
     .bar {
-      width: 70px;
+      /* width: 66px; */
       height: 3px;
       background-color: transparent;
       border-radius: 10px;
@@ -67,7 +67,7 @@ const TabBox = styled.div`
       }
 
       .bar {
-        width: 70px;
+        width: 66px;
         background-color: #fed36a;
       }
     }
@@ -76,7 +76,9 @@ const TabBox = styled.div`
 const BookList = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
+  /* gap: 8px; */
+  row-gap: 20px;
+  column-gap: 4px;
   margin-top: 20px;
 
   .book-item {

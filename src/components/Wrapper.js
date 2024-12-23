@@ -3,8 +3,9 @@ import { mainStyle } from "../GlobalStyled";
 
 const Wrap = styled.div`
   width: 100%;
-  max-width: 375px;
+  max-width: 430px;
   height: 100vh;
+  max-height: 100vh;
   padding: 0 ${mainStyle.Padding_main};
   margin: 0 auto;
   background-color: #fff6ec;

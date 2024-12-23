@@ -4,14 +4,14 @@ import { useNavigate } from "react-router-dom";
 
 const Wrap = styled.div`
   width: 100%;
-  max-width: 375px;
+  max-width: 430px;
   height: 100vh;
   background-color: #fff;
   /* border: 1px solid #ababab; */
   overflow: hidden;
   position: fixed;
   top: 0;
-  left: calc(50% - 187.5px);
+  left: calc(50% - 215px);
   transform: ${({ isOpen }) =>
     isOpen ? "translateX(0)" : "translateX(-250%)"};
   transition: all 0.5s ease-in-out;

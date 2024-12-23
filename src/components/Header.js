@@ -13,7 +13,7 @@ const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #ffcc93;
+  border-bottom: 1px solid #dbdbdb;
   padding: 40px ${mainStyle.Padding_main};
 `;
 const BackButton = styled.div`
@@ -52,7 +52,7 @@ const Header = () => {
         <Logo
           src={`${process.env.PUBLIC_URL}/imgs/book_5606116.png`}
           alt="logo"
-          onClick={() => navigate("/")}
+          onClick={() => navigate("/search")}
         />
 
         <MenuButton onClick={openMenu}>

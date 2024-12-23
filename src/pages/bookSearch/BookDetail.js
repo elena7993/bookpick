@@ -22,7 +22,7 @@ const Title = styled.div`
   font-size: 26px;
   font-weight: 700;
   text-align: center;
-  margin: 20px 0 35px 0;
+  margin: 30px 0 35px 0;
 `;
 const BookInfo = styled.div`
   .info {
