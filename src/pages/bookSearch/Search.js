@@ -19,7 +19,7 @@ const TabBox = styled.div`
     h3 {
       font-size: 16px;
       font-weight: 700;
-      padding: 2px;
+      padding: 3px;
       color: #ababab;
     }
     .bar {
@@ -33,7 +33,7 @@ const TabBox = styled.div`
     &.active {
       h3 {
         color: #000;
-        font-size: 18px;
+        font-size: 16px;
       }
 
       .bar {
@@ -48,8 +48,9 @@ const TabBox = styled.div`
     flex-direction: column;
     cursor: pointer;
     h3 {
+      font-size: 16px;
       font-weight: 700;
-      padding: 2px;
+      padding: 3px;
       color: #ababab;
     }
     .bar {
@@ -62,7 +63,7 @@ const TabBox = styled.div`
     &.active {
       h3 {
         color: #000;
-        font-size: 18px;
+        font-size: 16px;
       }
 
       .bar {

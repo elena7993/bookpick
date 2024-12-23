@@ -3,9 +3,11 @@ import Header from "../../components/Header";
 import Wrapper from "../../components/Wrapper";
 import { useEffect, useState } from "react";
 import PageTitle from "../../components/PageTitle";
+import { useNavigate } from "react-router-dom";
 
 const TapBox = styled.div`
   display: flex;
+  height: 30px;
   margin-top: 20px;
   .wishlist {
     margin-right: 16px;
@@ -95,6 +97,18 @@ const Books = styled.div`
       display: flex;
       font-size: 12px;
     }
+    .deleteBtn {
+      width: 40px;
+      height: 19px;
+      background-color: #f94b4b;
+      border-radius: 20px;
+      font-size: 12px;
+      font-family: "Noto Sans KR", serif;
+      color: #fff;
+      text-align: center;
+      line-height: 19px;
+      margin-top: 15px;
+    }
   }
 `;
 
@@ -102,6 +116,8 @@ const BookShelf = () => {
   const [activeTab, setActiveTab] = useState("wishlist");
   const [wishlist, setWishlist] = useState([]);
   const [readlist, setReadlist] = useState([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const storedWishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
@@ -111,6 +127,18 @@ const BookShelf = () => {
   }, []);
 
   const booksToShow = activeTab === "wishlist" ? wishlist : readlist;
+
+  const handleDelete = (id) => {
+    if (activeTab === "wishlist") {
+      const updatedWishlist = wishlist.filter((book) => book.id !== id);
+      setWishlist(updatedWishlist);
+      localStorage.setItem("wishlist", JSON.stringify(updatedWishlist));
+    } else if (activeTab === "readlist") {
+      const updatedReadlist = readlist.filter((book) => book.id !== id);
+      setReadlist(updatedReadlist);
+      localStorage.setItem("readlist", JSON.stringify(updatedReadlist));
+    }
+  };
 
   return (
     <>
@@ -138,7 +166,11 @@ const BookShelf = () => {
         <Books>
           {booksToShow.length > 0 ? (
             booksToShow.map((book) => (
-              <div className="book-item" key={book.id}>
+              <div
+                className="book-item"
+                key={book.id}
+                onClick={() => navigate(`/search/detail/${book.id}`)}
+              >
                 <img src={book.cover} alt={book.title} />
                 <h3>{book.title}</h3>
                 <h4>{book.author}</h4>
@@ -146,6 +178,15 @@ const BookShelf = () => {
                   <span>{book.publisher}</span>
                   <span>{book.pubDate}</span>
                 </p>
+                <div
+                  className="deleteBtn"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleDelete(book.id);
+                  }}
+                >
+                  삭제
+                </div>
               </div>
             ))
           ) : (
@@ -162,3 +203,6 @@ const BookShelf = () => {
 };
 
 export default BookShelf;
+
+// e.stopPropagation
+// 부모의 이벤트를 방지함

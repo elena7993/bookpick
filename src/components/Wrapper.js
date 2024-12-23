@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { mainStyle } from "../GlobalStyled";
-import { CustomScroll } from "react-custom-scroll";
 
 const Wrap = styled.div`
   width: 100%;
