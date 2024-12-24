@@ -42,19 +42,20 @@ const BookInfo = styled.div`
   }
 `;
 const DescBox = styled.div`
-  margin: 25px 0;
-  opacity: 0.8;
+  margin: 30px 0;
+  opacity: 0.7;
 `;
 const Button = styled.button`
   all: unset;
-  width: 320px;
+  width: 310px;
   height: 40px;
   background-color: #f6bf00;
   color: #fff;
   font-weight: 700;
   border-radius: 25px;
   text-align: center;
-  margin-bottom: 30px;
+  display: block;
+  margin: 20px auto;
   cursor: pointer;
 `;
 

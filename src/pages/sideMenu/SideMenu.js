@@ -6,16 +6,21 @@ const Wrap = styled.div`
   width: 100%;
   max-width: 430px;
   height: 100vh;
+  min-height: 100vh;
   background-color: #fff;
-  /* border: 1px solid #ababab; */
   overflow: hidden;
   position: fixed;
   top: 0;
-  left: calc(50% - 215px);
+  /* left: calc(50% - 215px); */
+  left: 0;
   transform: ${({ isOpen }) =>
     isOpen ? "translateX(0)" : "translateX(-250%)"};
   transition: all 0.5s ease-in-out;
   z-index: 999;
+
+  @media screen and (min-width: 440px) {
+    left: calc(50% - 215px);
+  }
 `;
 const Title = styled.div`
   font-size: 40px;
@@ -62,7 +67,11 @@ const SideMenu = ({ isOpen, onClose }) => {
       <MenuBox>
         <p onClick={() => navigate("/search")}>도서 검색</p>
         <p onClick={() => navigate("/shelf")}>책장 보기</p>
-        <a href="https://www.aladin.co.kr/home/welcome.aspx" target="_blank">
+        <a
+          href="https://www.aladin.co.kr/home/welcome.aspx"
+          target="_blank"
+          rel="noopener noreferrrer"
+        >
           <p>알라딘 바로가기기</p>
         </a>
       </MenuBox>

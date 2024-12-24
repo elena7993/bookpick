@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import Wrapper from "../../components/Wrapper";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import PageTitle from "../../components/PageTitle";
+import { useEffect } from "react";
 
 const InnerWrap = styled.div`
   width: calc(100% + 36px);
@@ -56,6 +57,15 @@ const Button = styled.button`
 `;
 
 const Home = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      navigate("/search");
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, [navigate]);
   return (
     <>
       <PageTitle title={"HOME"} />

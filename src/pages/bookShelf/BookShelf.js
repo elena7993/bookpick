@@ -76,12 +76,9 @@ const Books = styled.div`
   place-items: center;
   row-gap: 20px;
   column-gap: 4px;
-  margin-top: 20px;
+  margin: 20px 0 30px 0;
   .book-item {
-    /* width: 140px;
-    height: 265px; */
     cursor: pointer;
-    /* overflow: hidden; */
     img {
       width: 140px;
       height: 175px;
@@ -91,18 +88,27 @@ const Books = styled.div`
     h3 {
       font-size: 14px;
       font-weight: 700;
-      margin: 8px 0 5px;
-      white-space: nowrap; /* 한 줄로 제한 */
+      margin: 8px 0 6px;
+      width: 140px;
+      white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis; /* 텍스트 잘림 표시 */
     }
     h4 {
       font-size: 12px;
       margin-bottom: 4px;
+      width: 140px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     .pub {
       display: flex;
       font-size: 12px;
+      width: 140px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     .deleteBtn {
       width: 40px;
@@ -114,7 +120,7 @@ const Books = styled.div`
       color: #fff;
       text-align: center;
       line-height: 19px;
-      margin-top: 15px;
+      margin-top: 12px;
     }
   }
 `;
