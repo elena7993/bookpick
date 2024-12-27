@@ -7,10 +7,11 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import InputSearch from "../../components/InputSearch";
 import PageTitle from "../../components/PageTitle";
+import { faL } from "@fortawesome/free-solid-svg-icons";
 
 const TabBox = styled.div`
   display: flex;
-  margin-top: 20px;
+  margin: 20px 0 30px 0;
   .bestseller {
     margin-right: 16px;
     display: flex;
@@ -20,6 +21,7 @@ const TabBox = styled.div`
       font-size: 16px;
       font-weight: 700;
       padding: 3px;
+      margin-bottom: 2px;
       color: #ababab;
     }
     .bar {
@@ -51,6 +53,7 @@ const TabBox = styled.div`
       font-size: 16px;
       font-weight: 700;
       padding: 3px;
+      margin-bottom: 2px;
       color: #ababab;
     }
     .bar {
@@ -76,10 +79,9 @@ const TabBox = styled.div`
 const BookList = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  /* gap: 8px; */
-  row-gap: 20px;
+  row-gap: 25px;
   column-gap: 4px;
-  margin-top: 20px;
+  margin-bottom: 40px;
 
   .book-item {
     display: flex;
@@ -112,17 +114,17 @@ const CategoryList = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin-top: 30px;
+  margin-bottom: 40px;
   .category-item {
     font-size: 18px;
     font-weight: 400;
     text-align: center;
     color: #000;
     cursor: pointer;
-    &:hover {
+    /* &:hover {
       background-color: #fed36a;
       transition: all 0.2s ease-in-out;
-    }
+    } */
   }
 `;
 
@@ -143,7 +145,7 @@ const Search = () => {
     <>
       <PageTitle title={"Search"} />
       <Wrapper>
-        <Header />
+        <Header showBackBtn={false} />
         <InputSearch
           searchTerm={searchTerm}
           setSearchTerm={setSearchTerm}

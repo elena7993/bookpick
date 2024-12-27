@@ -8,9 +8,6 @@ const InnerWrap = styled.div`
   width: calc(100% + 36px);
   height: 100%;
   margin: 0 -18px;
-  /* background: url(${`${process.env.PUBLIC_URL}/imgs/vintage_book_strore.webp`})
-    no-repeat center / cover;
-  filter: brightness(0.7) contrast(1.1); */
   display: flex;
   flex-direction: column;
   justify-content: space-around;

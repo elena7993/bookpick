@@ -27,9 +27,9 @@ const SelectedCategory = styled.div`
 const BookList = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  row-gap: 20px;
+  row-gap: 25px;
   column-gap: 4px;
-  margin-top: 20px;
+  margin: 20px 0 40px;
   position: relative;
 
   .book-item {

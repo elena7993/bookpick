@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { IoCloseSharp } from "react-icons/io5";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Wrap = styled.div`
   width: 100%;
@@ -11,7 +11,6 @@ const Wrap = styled.div`
   overflow: hidden;
   position: fixed;
   top: 0;
-  /* left: calc(50% - 215px); */
   left: 0;
   transform: ${({ isOpen }) =>
     isOpen ? "translateX(0)" : "translateX(-250%)"};
@@ -34,12 +33,12 @@ const MenuBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 26px;
+  row-gap: 48px;
+  font-size: 22px;
+  color: #000;
   cursor: pointer;
-  p {
-    margin-bottom: 60px;
+  a {
     color: #000;
-    text-decoration: none;
   }
 `;
 const LogoBg = styled.div`
@@ -50,8 +49,6 @@ const LogoBg = styled.div`
 `;
 
 const SideMenu = ({ isOpen, onClose }) => {
-  const navigate = useNavigate();
-
   return (
     <Wrap isOpen={isOpen}>
       <IoCloseSharp
@@ -65,8 +62,12 @@ const SideMenu = ({ isOpen, onClose }) => {
       />
       <Title>BOOK PICK</Title>
       <MenuBox>
-        <p onClick={() => navigate("/search")}>도서 검색</p>
-        <p onClick={() => navigate("/shelf")}>책장 보기</p>
+        <Link to={"/search"} style={{ color: "#000" }}>
+          도서 검색
+        </Link>
+        <Link to={"/shelf"} style={{ color: "#000" }}>
+          책장 보기
+        </Link>
         <a
           href="https://www.aladin.co.kr/home/welcome.aspx"
           target="_blank"

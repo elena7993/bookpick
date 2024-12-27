@@ -16,7 +16,7 @@ const SearchBox = styled.div`
   input {
     all: unset;
     &::placeholder {
-      font-size: 14px;
+      font-size: 12px;
     }
   }
 `;
@@ -44,7 +44,7 @@ const InputSearch = ({ searchTerm, setSearchTerm, onSearch }) => {
     <SearchBox>
       <input
         type="text"
-        placeholder="도서를 입력하세요."
+        placeholder="찾으시는 도서를 입력하세요."
         value={localTerm}
         onChange={handleInputChange}
         onKeyDown={handleKeyDown}

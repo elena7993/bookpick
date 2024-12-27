@@ -7,14 +7,13 @@ import { useState } from "react";
 import SideMenu from "../pages/sideMenu/SideMenu";
 
 const HeaderContainer = styled.div`
-  width: calc(100% + 36px);
-  margin: 0 -18px;
-  height: 55px;
+  width: 100%;
+  height: 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #dbdbdb;
-  padding: 40px ${mainStyle.Padding_main};
+  border-bottom: 1px solid #e6e6e6;
+  padding: 36px 0;
 `;
 const BackButton = styled.div`
   color: #333;
@@ -35,7 +34,7 @@ const MenuButton = styled.div`
   cursor: pointer;
 `;
 
-const Header = () => {
+const Header = ({ showBackBtn = true }) => {
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -45,7 +44,10 @@ const Header = () => {
   return (
     <>
       <HeaderContainer>
-        <BackButton onClick={() => navigate(-1)}>
+        <BackButton
+          onClick={() => navigate(-1)}
+          style={{ visibility: showBackBtn ? "visible" : "hidden" }}
+        >
           <FaArrowLeft />
         </BackButton>
 

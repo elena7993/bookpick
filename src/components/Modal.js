@@ -1,3 +1,5 @@
+import { IoCloseSharp } from "react-icons/io5";
+import { toast } from "react-toastify";
 import styled from "styled-components";
 
 const ModalOverlay = styled.div`
@@ -19,28 +21,65 @@ const ModalContent = styled.div`
   background-color: #fff;
   border-radius: 10px;
   text-align: center;
+  position: relative;
 `;
 
-const Button = styled.button`
+const ButtonWish = styled.button`
   all: unset;
-  padding: 16px 20px;
+  width: 110px;
+  height: 30px;
   /* background-color: #f6bf00; */
+  border: 1px solid #f6bf00;
   color: #f6bf00;
   font-weight: 600;
-  border-radius: 25px;
+  border-radius: 10px;
+  margin-right: 8px;
+  cursor: pointer;
+`;
+
+const ButtonRead = styled.button`
+  all: unset;
+  width: 110px;
+  height: 30px;
+  background-color: #f6bf00;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 10px;
   cursor: pointer;
 `;
 
 const Modal = ({ onClose, onAddToWishlist, onAddToReadlist }) => {
+  const handleAddToWish = () => {
+    onAddToWishlist();
+    toast.success("위시리스트에 추가되었습니다! 🎉");
+    onClose();
+  };
+
+  const handleAddToRead = () => {
+    onAddToReadlist();
+    toast.success("완독리스트에 추가되었습니다! 📚");
+    onClose();
+  };
+
   return (
     <ModalOverlay>
       <ModalContent>
-        <h3 style={{ marginBottom: "10px", fontSize: "14px" }}>
+        <h3 style={{ marginBottom: "20px", fontSize: "14px" }}>
           이 책을 어디에 추가할까요?
+          <IoCloseSharp
+            onClick={onClose}
+            style={{
+              fontSize: "18px",
+              position: "absolute",
+              top: "10px",
+              right: "10px",
+              cursor: "pointer",
+            }}
+          />
         </h3>
-        <Button onClick={onAddToWishlist}>위시리스트</Button>
-        <Button onClick={onAddToReadlist}>완독리스트</Button>
-        <Button onClick={onClose}>닫기</Button>
+
+        <ButtonWish onClick={handleAddToWish}>위시리스트</ButtonWish>
+        <ButtonRead onClick={handleAddToRead}>완독리스트</ButtonRead>
       </ModalContent>
     </ModalOverlay>
   );

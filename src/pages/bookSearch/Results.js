@@ -26,7 +26,7 @@ const BookList = styled.div`
   grid-template-columns: repeat(2, 1fr);
   place-items: center;
   gap: 8px;
-  margin-top: 20px;
+  margin: 20px 0 40px;
   .book-item {
     cursor: pointer;
     img {

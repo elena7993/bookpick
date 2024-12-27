@@ -44,10 +44,11 @@ const BookInfo = styled.div`
 const DescBox = styled.div`
   margin: 30px 0;
   opacity: 0.7;
+  line-height: 1.2;
 `;
 const Button = styled.button`
   all: unset;
-  width: 310px;
+  width: 100%;
   height: 40px;
   background-color: #f6bf00;
   color: #fff;
@@ -55,7 +56,7 @@ const Button = styled.button`
   border-radius: 25px;
   text-align: center;
   display: block;
-  margin: 20px auto;
+  margin: 20px auto 40px;
   cursor: pointer;
 `;
 

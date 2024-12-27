@@ -8,7 +8,7 @@ const Wrap = styled.div`
   max-height: 100vh;
   padding: 0 ${mainStyle.Padding_main};
   margin: 0 auto;
-  background-color: #fff6ec;
+  background-color: #fffcf8;
   overflow-y: auto;
   position: relative;
 `;

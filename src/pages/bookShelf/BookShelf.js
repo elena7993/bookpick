@@ -19,6 +19,7 @@ const TapBox = styled.div`
       color: #ababab;
       font-weight: 700;
       padding: 2px;
+      margin-bottom: 3px;
     }
     .bar {
       width: 80px;
@@ -49,6 +50,7 @@ const TapBox = styled.div`
       color: #ababab;
       font-weight: 700;
       padding: 2px;
+      margin-bottom: 3px;
     }
     .bar {
       width: 82px;
@@ -76,7 +78,7 @@ const Books = styled.div`
   place-items: center;
   row-gap: 20px;
   column-gap: 4px;
-  margin: 20px 0 30px 0;
+  margin: 20px 0 40px 0;
   .book-item {
     cursor: pointer;
     img {
