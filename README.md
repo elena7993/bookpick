@@ -33,7 +33,7 @@
 
 ### 4. 스택
 
-- HTML/CSS, JS, React, Localstorage, Node.js, Figma
+- HTML, CSS, JavaScript, React, Figma
 
 ### 5. 개발 스케줄
 
