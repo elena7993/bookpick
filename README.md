@@ -10,10 +10,10 @@
 
 <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
 <img src="./public/images/bookpick_home.png" alt="홈화면" width="300" height="500">
-<img src="./public/images/bookpick_main.png" alt="홈화면" width="300" height="500">
-<img src="./public/images/bookpick_add.png" alt="홈화면" width="300" height="500">
-<img src="./public/images/bookpick_menu.png" alt="홈화면" width="300" height="500">
-<img src="./public/images/bookpick_shelf.png" alt="홈화면" width="300" height="500">
+<img src="./public/images/bookpick_main.png" alt="메인인화면" width="300" height="500">
+<img src="./public/images/bookpick_add.png" alt="추가화면" width="300" height="500">
+<img src="./public/images/bookpick_menu.png" alt="메뉴화면" width="300" height="500">
+<img src="./public/images/bookpick_shelf.png" alt="책장화면" width="300" height="500">
 
 <div>
 
